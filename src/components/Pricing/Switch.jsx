@@ -14,7 +14,7 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })`
   }
 `;
 
-const Label = styled.label.attrs({ type: "checkbox" })`
+const Label = styled.label`
   cursor: pointer;
 
   position: relative;
@@ -52,10 +52,11 @@ export default function Switch({ domId, onChange, isYearly }) {
       <Checkbox
         checked={isYearly}
         onChange={onChange}
+        aria-label={`Switch to ${isYearly ? "monthly" : "yearly"}`}
         type="checkbox"
         id={domId}
       />
-      <Label htmlFor={domId}></Label>
+      <Label for={domId} />
     </div>
   );
 }

@@ -12,6 +12,7 @@ export default function Slider(props) {
       type="range"
       value={value}
       onChange={onChange}
+      aria-label="Slider"
       className="mx-auto mb-6 w-full max-w-[27.75rem] cursor-grab active:cursor-grabbing"
     />
   );
