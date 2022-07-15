@@ -1,5 +1,7 @@
 import Card from "./Card";
 
-export default function Pricing() {
+function Pricing() {
   return <Card />;
 }
+
+export default Pricing;

@@ -46,10 +46,15 @@ const Label = styled.label.attrs({ type: "checkbox" })`
   }
 `;
 
-export default function Switch({ domId }) {
+export default function Switch({ domId, onChange, isYearly }) {
   return (
     <div>
-      <Checkbox type="checkbox" id={domId} />
+      <Checkbox
+        checked={isYearly}
+        onChange={onChange}
+        type="checkbox"
+        id={domId}
+      />
       <Label htmlFor={domId}></Label>
     </div>
   );
@@ -57,4 +62,6 @@ export default function Switch({ domId }) {
 
 Switch.propTypes = {
   domId: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  isYearly: PropTypes.bool.isRequired,
 };

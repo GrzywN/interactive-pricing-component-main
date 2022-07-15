@@ -1,24 +1,23 @@
-import { useState } from "react";
 import styled from "styled-components";
-
+import PropTypes from "prop-types";
 import iconSlider from "../../assets/icon-slider.svg";
 
-const sliderBackground = "hsl(174, 86%, 45%)";
-const sliderBarColorActive = "hsl(174, 77%, 80%)";
-const sliderBarColorEmpty = "hsl(224, 65%, 95%)";
-
-export default function Slider() {
-  const [value, setValue] = useState(50);
+export default function Slider(props) {
+  const { onChange, value } = props;
 
   return (
     <StyledSlider
       type="range"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={onChange}
       className="mx-auto mb-6 w-full max-w-[27.75rem] cursor-grab active:cursor-grabbing"
     />
   );
 }
+
+const sliderBackground = "hsl(174, 86%, 45%)";
+const sliderBarColorActive = "hsl(174, 77%, 80%)";
+const sliderBarColorEmpty = "hsl(224, 65%, 95%)";
 
 const StyledSlider = styled.input.attrs({ type: "range" })`
   -webkit-appearance: none;
@@ -81,3 +80,8 @@ const StyledSlider = styled.input.attrs({ type: "range" })`
     transition: background-color 0.1s linear;
   }
 `;
+
+Slider.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
+};

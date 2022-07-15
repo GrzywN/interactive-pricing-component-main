@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 
-function PageViews({ currentPageviews }) {
+function PageViews({ pageViews }) {
   return (
     <p className="text-xs font-extrabold tracking-widest text-GrayishBlue md:text-[0.875rem] md:leading-[1.1875rem]">
-      {currentPageviews} Pageviews
+      {pageViews} Pageviews
     </p>
   );
 }
 
 PageViews.propTypes = {
-  currentPageviews: PropTypes.string.isRequired,
+  pageViews: PropTypes.string.isRequired,
 };
 
 export default PageViews;

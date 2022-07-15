@@ -19,6 +19,7 @@ module.exports = {
   plugins: ["react", "prettier", "tailwindcss"],
   rules: {
     "react/react-in-jsx-scope": "off",
+    "no-use-before-define": "off",
     // turn off after
     "react/self-closing-comp": "off",
   },
