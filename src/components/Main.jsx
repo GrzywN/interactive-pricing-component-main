@@ -2,7 +2,7 @@ import Card from "./Card";
 
 function Main() {
   return (
-    <main>
+    <main className="px-6">
       <Card />
     </main>
   );
