@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "./Button";
 import CheckIcon from "./CheckIcon";
 import Divider from "./Divider";
@@ -7,8 +8,16 @@ import Slider from "./Slider";
 import PricePerMonth from "./PricePerMonth";
 import Billing from "./Billing";
 import PricingText from "./PricingText";
+import Loader from "../Loader";
+import { createOpacityVariants } from "../../utils/animationVariants";
 
 function Card() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const toggleLoading = () => {
+    setIsLoading((prevIsLoading) => !prevIsLoading);
+  };
+
   const [pricing, setPricing] = useState({
     value: 50,
     isYearly: false,
@@ -90,46 +99,78 @@ function Card() {
     setIsYearly(event.target.checked);
   };
 
+  const animationVariants = createOpacityVariants(7);
+
   return (
-    <div className="mx-auto max-w-[33.75rem] rounded-lg bg-White shadow-xl">
+    <motion.div
+      className="relative mx-auto max-w-[33.75rem] rounded-lg bg-White shadow-xl"
+      initial="initial"
+      animate="animate"
+    >
       <div className="flex flex-col items-center justify-center px-6 pt-[2.125rem] sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-6 sm:px-12 sm:pt-10">
-        <div className="mb-[1.5625rem] sm:order-[-2] sm:mb-0">
+        <motion.div
+          className="mb-[1.5625rem] sm:order-[-2] sm:mb-0"
+          variants={animationVariants[0]}
+        >
           <PageViews pageViews={pricing.pageviews} />
-        </div>
-        <div className="col-span-full">
+        </motion.div>
+        <motion.div className="col-span-full" variants={animationVariants[1]}>
           <Slider onChange={sliderChangeHandler} value={pricing.value} />
-        </div>
-        <div className="mb-[2.125rem] flex items-center sm:order-[-1] sm:mb-0">
+        </motion.div>
+        <motion.div
+          className="mb-[2.125rem] flex items-center sm:order-[-1] sm:mb-0"
+          variants={animationVariants[0]}
+        >
           <PricePerMonth
             currentPrice={`$${(pricing.isYearly
               ? (pricing.price / 100) * 75
               : pricing.price
             ).toFixed(2)}`}
           />
-        </div>
-        <div className="relative col-span-full mx-auto mb-[2.375rem] flex w-[14.0625rem] items-center gap-3 sm:mt-[-2.5rem] sm:mb-0">
+        </motion.div>
+        <motion.div
+          className="relative col-span-full mx-auto mb-[2.375rem] flex w-[14.0625rem] items-center gap-3 sm:mt-[-2.5rem] sm:mb-0"
+          variants={animationVariants[2]}
+        >
           <Billing onChange={handleSwitchChange} isYearly={pricing.isYearly} />
-        </div>
+        </motion.div>
       </div>
       <Divider />
       <div className="flex flex-col items-center justify-between gap-8 pt-6 pb-8 sm:flex-row sm:pl-12 sm:pr-11 sm:pt-8">
         <ul className="grid gap-[0.625rem]">
-          <li className="flex items-center gap-4">
+          <motion.li
+            className="flex items-center gap-4"
+            variants={animationVariants[3]}
+          >
             <CheckIcon />
             <PricingText>Unlimited websites</PricingText>
-          </li>
-          <li className="flex items-center gap-4">
+          </motion.li>
+          <motion.li
+            className="flex items-center gap-4"
+            variants={animationVariants[4]}
+          >
             <CheckIcon />
             <PricingText>100% data ownership</PricingText>
-          </li>
-          <li className="flex items-center gap-4">
+          </motion.li>
+          <motion.li
+            className="flex items-center gap-4"
+            variants={animationVariants[5]}
+          >
             <CheckIcon />
             <PricingText>Email reports</PricingText>
-          </li>
+          </motion.li>
         </ul>
-        <Button>Start my trial</Button>
+        <motion.div
+          className="w-full max-w-[10.625rem]"
+          variants={animationVariants[6]}
+        >
+          <Button onClick={toggleLoading}>Start my trial</Button>
+        </motion.div>
       </div>
-    </div>
+      <AnimatePresence>
+        {isLoading && <Loader onClick={toggleLoading} />}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
