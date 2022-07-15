@@ -20,7 +20,6 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off",
     "no-use-before-define": "off",
-    // turn off after
-    "react/self-closing-comp": "off",
+    "import/no-extraneous-dependencies": "off",
   },
 };

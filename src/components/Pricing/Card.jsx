@@ -6,7 +6,7 @@ import PageViews from "./PageViews";
 import Slider from "./Slider";
 import PricePerMonth from "./PricePerMonth";
 import Billing from "./Billing";
-import BillingText from "./BillingText";
+import PricingText from "./PricingText";
 
 function Card() {
   const [pricing, setPricing] = useState({
@@ -92,7 +92,7 @@ function Card() {
 
   return (
     <div className="mx-auto max-w-[33.75rem] rounded-lg bg-White shadow-xl">
-      <div className="flex flex-col items-center justify-center px-6 pt-[2.125rem] sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-8 sm:px-12 sm:pt-10">
+      <div className="flex flex-col items-center justify-center px-6 pt-[2.125rem] sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-6 sm:px-12 sm:pt-10">
         <div className="mb-[1.5625rem] sm:order-[-2] sm:mb-0">
           <PageViews pageViews={pricing.pageviews} />
         </div>
@@ -107,24 +107,24 @@ function Card() {
             ).toFixed(2)}`}
           />
         </div>
-        <div className="relative col-span-full mx-auto mb-[2.375rem] flex w-[14.0625rem] items-center gap-3 sm:mt-[-3.5rem] sm:mb-0">
+        <div className="relative col-span-full mx-auto mb-[2.375rem] flex w-[14.0625rem] items-center gap-3 sm:mt-[-2.5rem] sm:mb-0">
           <Billing onChange={handleSwitchChange} isYearly={pricing.isYearly} />
         </div>
       </div>
       <Divider />
-      <div className="flex flex-col items-center justify-between gap-8 pt-6 pb-8 sm:flex-row sm:pl-12 sm:pr-11">
+      <div className="flex flex-col items-center justify-between gap-8 pt-6 pb-8 sm:flex-row sm:pl-12 sm:pr-11 sm:pt-8">
         <ul className="grid gap-[0.625rem]">
           <li className="flex items-center gap-4">
             <CheckIcon />
-            <BillingText>Unlimited websites</BillingText>
+            <PricingText>Unlimited websites</PricingText>
           </li>
           <li className="flex items-center gap-4">
             <CheckIcon />
-            <BillingText>100% data ownership</BillingText>
+            <PricingText>100% data ownership</PricingText>
           </li>
           <li className="flex items-center gap-4">
             <CheckIcon />
-            <BillingText>Email reports</BillingText>
+            <PricingText>Email reports</PricingText>
           </li>
         </ul>
         <Button>Start my trial</Button>

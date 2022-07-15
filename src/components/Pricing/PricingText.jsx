@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function BillingText({ children }) {
+function PricingText({ children }) {
   return (
     <p className="text-xs font-semibold tracking-normal text-GrayishBlue">
       {children}
@@ -8,8 +8,8 @@ function BillingText({ children }) {
   );
 }
 
-BillingText.propTypes = {
+PricingText.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
-export default BillingText;
+export default PricingText;
