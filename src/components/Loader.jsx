@@ -26,7 +26,7 @@ function Loader({ onClick }) {
     <motion.button
       type="button"
       onClick={onClick}
-      className="absolute top-0 h-full w-full cursor-default bg-[rgba(255,255,255,0.5)] backdrop-blur-md"
+      className="absolute top-0 h-full w-full cursor-default bg-[rgba(255,255,255,0.5)] backdrop-blur-lg"
       exit={{ opacity: 0 }}
     >
       <motion.div

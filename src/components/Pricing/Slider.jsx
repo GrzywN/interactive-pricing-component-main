@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import iconSlider from "../../assets/icon-slider.svg";
