@@ -1,7 +1,7 @@
 import Badge from "./Badge";
 import Switch from "./Switch";
 
-export default function Billing() {
+function Billing() {
   return (
     <>
       <p className="text-xs font-semibold tracking-normal text-GrayishBlue">
@@ -15,3 +15,5 @@ export default function Billing() {
     </>
   );
 }
+
+export default Billing;

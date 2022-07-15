@@ -1,9 +1,9 @@
-import Card from "./Card";
+import Pricing from "./Pricing";
 
 function Main() {
   return (
     <main className="px-6">
-      <Card />
+      <Pricing />
     </main>
   );
 }

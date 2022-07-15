@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import iconSlider from "../assets/icon-slider.svg";
+import iconSlider from "../../assets/icon-slider.svg";
 
 const sliderBackground = "hsl(174, 86%, 45%)";
 const sliderBarColorActive = "hsl(174, 77%, 80%)";
