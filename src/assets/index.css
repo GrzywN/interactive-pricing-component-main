@@ -80,6 +80,13 @@ h2 {
   line-height: 2.75rem;
 }
 
+button {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1rem;
+}
+
 @media screen and (min-width: 48rem) {
   body {
     background-position: center top 4.1875rem, left top;
@@ -104,5 +111,17 @@ h2 {
     font-size: 2.5rem;
     letter-spacing: -0.0625rem;
     line-height: 3.4375rem;
+  }
+}
+
+@media screen and (max-width: 23.375rem) {
+  html {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 18.125rem) {
+  html {
+    font-size: 0.5rem;
   }
 }

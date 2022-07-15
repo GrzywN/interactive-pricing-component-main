@@ -1,16 +1,13 @@
+import BillingText from "./BillingText";
 import Badge from "./Badge";
 import Switch from "./Switch";
 
 function Billing() {
   return (
     <>
-      <p className="text-xs font-semibold tracking-normal text-GrayishBlue">
-        Monthly Billing
-      </p>
+      <BillingText>Monthly Billing</BillingText>
       <Switch domId="billing" />
-      <p className="text-xs font-semibold tracking-normal text-GrayishBlue">
-        Yearly Billing
-      </p>
+      <BillingText>Yearly Billing</BillingText>
       <Badge />
     </>
   );
